@@ -25,11 +25,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let match = history[indexPath.row]
         //3 add data to the cell 
         cell.textLabel?.text = match.resultString()
-        
+        //if it got it display if not do nothing
+        cell.detailTextLabel?.text = match.messageResult()
         // If the cell has a detail label, we will put the evil scheme in.
-        if let detailTextLabel = cell.detailTextLabel {
-            detailTextLabel.text = match.messageResult()
-        }
+//        if let detailTextLabel = cell.detailTextLabel {
+//            detailTextLabel.text = match.messageResult()
+//        }
         return cell
     }
 }
