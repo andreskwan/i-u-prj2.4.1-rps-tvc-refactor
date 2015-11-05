@@ -59,6 +59,14 @@
                                     <action selector="makeYourMove:" destination="iYZ-Mq-4iF" eventType="touchUpInside" id="fGy-X8-GSq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWl-DM-fAH">
+                                <rect key="frame" x="113" y="507" width="94" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Game History"/>
+                                <connections>
+                                    <action selector="showHistory:" destination="iYZ-Mq-4iF" eventType="touchUpInside" id="CfC-qr-NDO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -154,7 +162,7 @@
         <!--History View Controller-->
         <scene sceneID="M3z-pu-a2v">
             <objects>
-                <viewController storyboardIdentifier="HistoryViewController" id="sfm-7Y-saF" customClass="HistoryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryViewController" id="sfm-7Y-saF" customClass="HistoryViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F6B-4z-iS8"/>
                         <viewControllerLayoutGuide type="bottom" id="3Tk-i8-ghh"/>

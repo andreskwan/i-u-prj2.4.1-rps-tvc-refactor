@@ -78,8 +78,18 @@ class RockPaperScissorsViewController: UIViewController {
     }
    
     @IBAction func showHistory(sender: AnyObject) {
-      //TODO: Present HistoryViewController
-
+        //TODO: Present HistoryViewController
+        if self.history.count > 0 {
+            //HistoryViewController
+            let storyboard = UIStoryboard (name: "Main", bundle: nil)
+            let historyVC = storyboard.instantiateViewControllerWithIdentifier("HistoryViewController") as! HistoryViewController
+            
+            // Communicate the match
+            historyVC.history = self.history
+            self.presentViewController(historyVC, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertView(title: "History Content", message: "There is not history to dispaly", delegate: self, cancelButtonTitle: "Dismiss")
+//            alert
+        }
     }
-    
 }
