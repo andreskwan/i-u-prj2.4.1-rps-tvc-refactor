@@ -18,6 +18,8 @@ class RockPaperScissorsViewController: UIViewController {
     
     // Here is the history array which will hold the results of each match that is played in a session.
     var history = [RPSMatch]()
+
+    let kSegueIdentifierHistoryVC = "HistoryVCSegue"
     
     @IBAction func makeYourMove(sender: UIButton) {
         
@@ -72,23 +74,23 @@ class RockPaperScissorsViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        //Notice that this code works for both Scissors and Paper
-        let controller = segue.destinationViewController as! ResultViewController
-        controller.match = self.match
+        switch segue.identifier! {
+        case kSegueIdentifierHistoryVC:
+            let controller = segue.destinationViewController as! HistoryViewController
+            controller.history = self.history
+        default:
+            //Notice that this code works for both Scissors and Paper
+            let controller = segue.destinationViewController as! ResultViewController
+            controller.match = self.match
+        }
     }
    
     @IBAction func showHistory(sender: AnyObject) {
         //TODO: Present HistoryViewController
         if self.history.count > 0 {
-            //HistoryViewController
-            let storyboard = UIStoryboard (name: "Main", bundle: nil)
-            let historyVC = storyboard.instantiateViewControllerWithIdentifier("HistoryViewController") as! HistoryViewController
-            
-            // Communicate the match
-            historyVC.history = self.history
-            self.presentViewController(historyVC, animated: true, completion: nil)
+            performSegueWithIdentifier(kSegueIdentifierHistoryVC, sender: self)
         } else {
-            let alert = UIAlertView(title: "History Content", message: "There is not history to dispaly", delegate: self, cancelButtonTitle: "Dismiss")
+//            let alert = UIAlertView(title: "History Content", message: "There is not history to dispaly", delegate: self, cancelButtonTitle: "Dismiss")
 //            alert
         }
     }

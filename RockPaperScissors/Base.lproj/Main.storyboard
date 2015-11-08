@@ -88,6 +88,7 @@
                         <outlet property="rockButton" destination="2pQ-vK-SEv" id="dpm-25-xrO"/>
                         <outlet property="scissorsButton" destination="kDr-vO-WkA" id="3bC-0b-DYi"/>
                         <segue destination="7l5-Gp-aIR" kind="modal" identifier="throwDownPaper" id="VKf-O8-YvW"/>
+                        <segue destination="sfm-7Y-saF" kind="modal" identifier="HistoryVCSegue" id="fy8-nA-6Id"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AH7-9D-0G1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,8 +172,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gyd-lY-LUV">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gyd-lY-LUV">
+                                <rect key="frame" x="0.0" y="20" width="320" height="498"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -192,21 +193,30 @@
                                     <outlet property="delegate" destination="sfm-7Y-saF" id="TVV-pj-UhR"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CN-1f-rId">
+                                <rect key="frame" x="116" y="530" width="89" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Keep Playing"/>
+                                <connections>
+                                    <action selector="keepPlayingButton:" destination="sfm-7Y-saF" eventType="touchUpInside" id="uUH-dl-Czc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gyd-lY-LUV" firstAttribute="top" secondItem="F6B-4z-iS8" secondAttribute="bottom" id="45b-nx-zqu"/>
-                            <constraint firstItem="3Tk-i8-ghh" firstAttribute="top" secondItem="gyd-lY-LUV" secondAttribute="bottom" id="88b-01-FRD"/>
-                            <constraint firstItem="gyd-lY-LUV" firstAttribute="top" secondItem="F6B-4z-iS8" secondAttribute="bottom" id="Wss-iw-XQo"/>
-                            <constraint firstItem="gyd-lY-LUV" firstAttribute="leading" secondItem="miA-C1-X78" secondAttribute="leadingMargin" constant="-20" id="YeG-ES-hyS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gyd-lY-LUV" secondAttribute="trailing" constant="-20" id="bbT-oZ-SFQ"/>
+                            <constraint firstItem="3Tk-i8-ghh" firstAttribute="top" secondItem="7CN-1f-rId" secondAttribute="bottom" constant="8" symbolic="YES" id="7ox-iq-i72"/>
+                            <constraint firstAttribute="trailing" secondItem="gyd-lY-LUV" secondAttribute="trailing" id="JJZ-ea-Bpr"/>
+                            <constraint firstItem="gyd-lY-LUV" firstAttribute="leading" secondItem="miA-C1-X78" secondAttribute="leading" id="QKF-oT-fRR"/>
+                            <constraint firstItem="gyd-lY-LUV" firstAttribute="top" secondItem="F6B-4z-iS8" secondAttribute="bottom" id="UA2-Wg-Qig"/>
+                            <constraint firstItem="7CN-1f-rId" firstAttribute="top" secondItem="gyd-lY-LUV" secondAttribute="bottom" constant="12" id="aAI-5s-y6k"/>
+                            <constraint firstItem="7CN-1f-rId" firstAttribute="centerX" secondItem="gyd-lY-LUV" secondAttribute="centerX" id="kbg-eQ-TrY"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0O0-kn-3qt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1176" y="141"/>
+            <point key="canvasLocation" x="809" y="890"/>
         </scene>
     </scenes>
     <resources>

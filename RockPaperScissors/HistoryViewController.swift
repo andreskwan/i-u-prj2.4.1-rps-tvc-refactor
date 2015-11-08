@@ -24,13 +24,19 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         //2 prepare data to be used in the cell
         let match = history[indexPath.row]
         //3 add data to the cell 
-        cell.textLabel?.text = match.resultString()
+        cell.textLabel?.text = match.messageResult()//match.resultString()
         //if it got it display if not do nothing
         cell.detailTextLabel?.text = match.messageResult()
+        cell.imageView?.image = UIImage(named: match.imageNameResult())
+        
+        // Optional biding can be used here
         // If the cell has a detail label, we will put the evil scheme in.
-//        if let detailTextLabel = cell.detailTextLabel {
-//            detailTextLabel.text = match.messageResult()
-//        }
+        //        if let detailTextLabel = cell.detailTextLabel {
+        //            detailTextLabel.text = match.messageResult()
+        //        }
         return cell
+    }
+    @IBAction func keepPlayingButton(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
