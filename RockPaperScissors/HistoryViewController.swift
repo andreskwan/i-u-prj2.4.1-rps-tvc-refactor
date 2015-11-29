@@ -31,7 +31,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     @IBAction func keepPlayingButton(sender: UIButton) {
-//        self.dismissViewControllerAnimated(true, completion: nil)
         if let navigationController = self.navigationController {
             navigationController.popToRootViewControllerAnimated(true)
         }

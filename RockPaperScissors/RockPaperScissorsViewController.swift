@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum SegueIdentifiers: String {
+    case Scissors = "throwDownScissors"
+    case HistoryVC = "HistoryVCSegue"
+}
+
 class RockPaperScissorsViewController: UIViewController {
 
     @IBOutlet weak var rockButton: UIButton!
@@ -18,8 +23,6 @@ class RockPaperScissorsViewController: UIViewController {
     
     // Here is the history array which will hold the results of each match that is played in a session.
     var history = [RPSMatch]()
-
-    let kSegueIdentifierHistoryVC = "HistoryVCSegue"
     
     @IBAction func makeYourMove(sender: UIButton) {
         
@@ -60,7 +63,10 @@ class RockPaperScissorsViewController: UIViewController {
         
             // Communicate the match
             resultVC.match = self.match
-            self.presentViewController(resultVC, animated: true, completion: nil)
+            if let navigationController = self.navigationController {
+                navigationController.pushViewController(resultVC, animated: true)
+            }
+//            self.presentViewController(resultVC, animated: true, completion: nil)
         }
         
         // 2nd Way: Code plus Segue
@@ -75,10 +81,12 @@ class RockPaperScissorsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         switch segue.identifier! {
-            case kSegueIdentifierHistoryVC:
+            case SegueIdentifiers.HistoryVC.rawValue:
                 let controller = segue.destinationViewController as! HistoryViewController
                 controller.history = self.history
+//            case SegueIdentifiers.Scissors.rawValue:
             default:
+                "Do nothing!, this is a technical debt"
                 //Notice that this code works for both Scissors and Paper
                 let controller = segue.destinationViewController as! ResultViewController
                 controller.match = self.match
@@ -88,7 +96,7 @@ class RockPaperScissorsViewController: UIViewController {
     @IBAction func showHistory(sender: AnyObject) {
         //TODO: Present HistoryViewController
         if self.history.count > 0 {
-            performSegueWithIdentifier(kSegueIdentifierHistoryVC, sender: self)
+            performSegueWithIdentifier(SegueIdentifiers.HistoryVC.rawValue, sender: self)
         } else {
 //            let alert = UIAlertView(title: "History Content", message: "There is not history to dispaly", delegate: self, cancelButtonTitle: "Dismiss")
 //            alert

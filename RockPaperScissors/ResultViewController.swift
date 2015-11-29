@@ -16,7 +16,7 @@ class ResultViewController: UIViewController {
     var match: RPSMatch!
     
     var message: NSString!
-    var  picture: UIImage!
+    var picture: UIImage!
     
     @IBOutlet weak var playAgainButton: UIButton!
     
